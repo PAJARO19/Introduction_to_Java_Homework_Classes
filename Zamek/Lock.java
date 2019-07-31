@@ -1,4 +1,4 @@
-package Shared.Zamek;
+package Shared.Introduction_to_Java_Homework_Classes.Zamek;
 
 import java.util.Random;
 
@@ -28,109 +28,85 @@ public class Lock {
         this.one = one;
     }
 
-    public int getOne() {
-        return one;
-    }
-
-    public int getTwo() {
-        return two;
-    }
-
-    public int getThree() {
-        return three;
-    }
-
-    public void setOne(int one) {
-        this.one = one;
-    }
-
-    public void setTwo(int two) {
-        this.two = two;
-    }
-
-    public void setThree(int three) {
-        this.three = three;
-    }
-
-    void moveRight3(Lock lock, int number){
+    void moveRight3(int number) {
         if (number == 1)
-            if (lock.getOne() != 9)
-            lock.setOne(lock.getOne()+1);
-            else lock.setOne(0);
+            if (this.one != 9)
+                this.one++;
+            else this.one = 0;
         if (number == 2)
-            if (lock.getTwo() != 9)
-                lock.setTwo(lock.getTwo()+1);
-            else lock.setTwo(0);
+            if (this.two != 9)
+                this.two++;
+            else this.two = 0;
         if (number == 3)
-            if (lock.getThree() != 9)
-                lock.setThree(lock.getThree()+1);
-            else lock.setThree(0);
-            if (number >= 4 || number <= 0)
-                System.out.println("Błędny numer!");
-        printCode3(lock);
+            if (this.three != 9)
+                this.three++;
+            else this.three = 0;
+        if (number >= 4 || number <= 0)
+            System.out.println("Błędny numer!");
+        printCode3();
     }
 
-    void moveRight2(Lock lock, int number){
+    void moveRight2(int number) {
         if (number == 1)
-            if (lock.getOne() != 9)
-                lock.setOne(lock.getOne()+1);
-            else lock.setOne(0);
+            if (this.one != 9)
+                this.one++;
+            else this.one = 0;
         if (number == 2)
-            if (lock.getTwo() != 9)
-                lock.setTwo(lock.getTwo()+1);
-            else lock.setTwo(0);
+            if (this.two != 9)
+                this.two++;
+            else this.two = 0;
         if (number >= 3 || number <= 0)
             System.out.println("Błędny numer!");
-        printCode2(lock);
+        printCode2();
     }
 
-    void moveRight1(Lock lock){
-        lock.setOne(lock.getOne()+1);
-        printCode1(lock);
+    void moveRight1() {
+        this.one++;
+        printCode1();
     }
 
-    boolean isOpen3(Lock lock, int one, int two, int three){
-        if (one == lock.getOne() && two == lock.getTwo() && three == lock.getThree())
+    boolean isOpen3(int one, int two, int three) {
+        if (one == this.one && two == this.two && three == this.three)
             return true;
         else return false;
     }
 
-    boolean isOpen2(Lock lock, int one, int two){
-        if (one == lock.getOne() && two == lock.getTwo())
+    boolean isOpen2(int one, int two) {
+        if (one == this.one && two == this.two)
             return true;
         else return false;
     }
 
-    boolean isOpen1(Lock lock, int one){
-        if (one == lock.getOne())
+    boolean isOpen1(int one) {
+        if (one == this.one)
             return true;
         else return false;
     }
 
-    void isOpenPrint (boolean isOpen) {
+    void isOpenPrint(boolean isOpen) {
         if (isOpen)
             System.out.println("Zamek otwarty");
         else System.out.println("Zamek zamknięty");
     }
 
-    void printCode3(Lock lock){
+    void printCode3() {
         System.out.println("Kod:");
-        System.out.print(lock.getOne());
-        System.out.print(lock.getTwo());
-        System.out.print(lock.getThree());
+        System.out.print(this.one);
+        System.out.print(this.two);
+        System.out.print(this.three);
         System.out.println();
     }
 
-    void printCode2(Lock lock) {
+    void printCode2() {
         System.out.println("Kod:");
-        System.out.print(lock.getOne());
-        System.out.print(lock.getTwo());
+        System.out.print(this.one);
+        System.out.print(this.two);
         System.out.println();
     }
 
-    void printCode1(Lock lock) {
+    void printCode1() {
         System.out.println("Kod:");
-        System.out.print(lock.getOne());
+        System.out.print(this.one);
         System.out.println();
     }
 }
